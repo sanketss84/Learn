@@ -1,0 +1,236 @@
+Tuts
+LevelUp Tuts - Gulp Series 
+
+https://github.com/gulpjs/gulp
+https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
+https://github.com/osscafe/gulp-cheatsheet
+
+https://www.npmjs.com/~sanketss84
+http://gulpjs.com/plugins/
+
+Git Hub Repos [Very Important]
+	https://github.com/gulpjs/gulp/tree/master/docs/recipes //Gulp Recipes
+	https://github.com/kogakure/gulp-tutorial
+	https://github.com/vigetlabs/gulp-starter
+	https://github.com/johnpapa/gulp-patterns
+	Refer GM DistributionPlanner : gulpfile.js 
+
+Blogs
+
+	Getting Started Series 
+	https://travismaynard.com/writing/getting-started-with-gulp
+	https://scotch.io/tutorials/automate-your-tasks-easily-with-gulp-js
+	https://css-tricks.com/gulp-for-beginners/
+	http://schickling.me/synchronous-tasks-gulp/
+	http://blog.teamtreehouse.com/introduction-source-maps [Source Maps Readme]
+
+	Stefan Imhoff
+	http://stefanimhoff.de/2014/gulp-tutorial-1-intro-setup/
+
+	John Papa 
+	https://app.pluralsight.com/library/courses/javascript-build-automation-gulpjs/table-of-contents
+	http://www.johnpapa.net/using-gulp-in-a-javascript-build-pipeline/
+
+
+	// --save-dev Vs --save : dependencies Vs devDependencies
+	https://docs.npmjs.com/getting-started/using-a-package.json
+	http://bower.io/docs/creating-packages/
+	http://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies
+	http://stackoverflow.com/questions/19339227/bower-and-devdependencies-vs-dependencies
+	http://stackoverflow.com/questions/27147684/difference-between-save-and-save-dev
+
+	-S 
+	-D 
+	--save
+	--save-dev 
+
+Naming Conventions 
+	http://www.w3schools.com/js/js_conventions.asp
+	// Global variables written in UPPERCASE 
+	// Constants (like PI) written in UPPERCASE
+	// Always use lower case file names for all files , images, js, css, html etc.
+	// Hyphens can be mistaken as subtraction attempts. Hyphens are not allowed in JavaScript names.
+
+Module Export for config.js 
+	// Understanding module.exports and exports in Node.js
+	// http://www.sitepoint.com/understanding-module-exports-exports-node-js/
+
+	What is a Module ?
+	A module encapsulates related code into a single unit of code. When creating a module, 
+	this can be interpreted as moving all related functions into a file.
+
+// Node Console Commands
+	npm ls 
+	npm list // http://stackoverflow.com/questions/17937960/how-to-list-npm-user-installed-packages
+	npm list -g --depth=0 // list installed packages 
+
+	npm init 
+	npm install packagename -g
+	npm install packagename --save-dev 
+	npm unintall packagename
+
+// Bower Console Commands
+	bower init 
+	bower install packagename --save
+	bower install jquery#1.11.1 --save
+	bower list --paths 
+
+// Gulp Console Commands
+	gulp // runs default task in 
+	gulp taskname 
+
+// Gulp Keywords
+	.pipe
+	.watch 
+	.task 
+	.on error 
+	console.log 
+
+// Gulp Packages  https://www.npmjs.com/package/packagename
+	
+	// Gulp Packages Helper
+		npm install --save-dev gulp-plumber // Error Handling
+		npm install --save-dev gulp-clean //Clean Folders and Files i.e. delete
+		npm install --save-dev gulp-rename //Renaming files like adding .min to minified files 
+	
+	//Gulp Packages HTML
+		npm install --save-dev gulp-jade
+	
+	//Gulp Packages CSS
+		npm install --save-dev gulp-concat-css
+		npm install --save-dev gulp-less
+		npm install --save-dev gulp-sass
+		npm install --save-dev gulp-autoprefixer
+	
+	//Gulp Packages Javascript
+		npm install jshint gulp-jshint --save-dev //as of 2.0 jshint must to be installed with gulp-jshint.
+		npm install --save-dev jshint-stylish // Important : Gives Errors in a stylish manner
+		npm install --save-dev gulp-concat //combine js files | optional : use browserify 
+		npm install --save-dev gulp-uglify
+	
+	//Gulp Packages Image Processing
+		npm install --save-dev gulp-imagemin // Check https://www.npmjs.com/browse/keyword/imageminplugin
+		npm install --save-dev gulp.spritesmith //Convert a set of images into a spritesheet and CSS variables via gulp
+		npm install --save-dev gulp-svg-sprite 
+	
+	//Gulp Packages Misc
+		npm install --save-dev gulp-livereload
+		npm install --save-dev gulp-browsersync
+
+// Gulp Slush as Generator
+
+Default Task --------------------------------------
+	npm install gulp -g
+	npm install gulp -save-dev
+	Created default task 
+	Console log , Hello World 
+
+Gulp Task Return --------------------------------------
+	http://stackoverflow.com/questions/21699146/gulp-js-task-return-on-src
+	https://github.com/gulpjs/gulp/blob/master/docs/API.md#async-task-support
+	Always Return 
+		If you dont return then the dependency system might start the a task before its dependencies are done. 
+		Ive got a gulpfile with a lot of tasks (mostly code-generated). Because I wasnt returning the stream, 
+		a dependent task was already reading the file while its dependency was still building. 
+		Got me in all sorts of trouble... – gligoran
+
+Gulp Uglify --------------------------------------
+	Minify Javascript 
+	npm install --save-dev gulp-uglify
+
+Gulp Plumber --------------------------------------
+	npm install --save-dev gulp-plumber
+
+Gulp CleanUp --------------------------------------
+	gulp plugin to delete everything in build folder prior to build
+	npm install --save-dev gulp-clean
+
+Gulp AutoPrefixer --------------------------------------
+	npm install --save-dev gulp-autoprefixer
+
+	https://davidwalsh.name/goodbye-vendor-prefixes
+	http://codepen.io/
+
+	.fourth-face {
+	  display: flex;
+	  justify-content: space-between;
+	}
+
+CSS Minify --------------------------------------
+	npm install --save-dev gulp-cssmin
+
+Rename for .min files --------------------------------------
+	npm install --save-dev gulp-rename
+
+Call one task from another --------------------------------------
+	http://schickling.me/synchronous-tasks-gulp/
+
+Gulp Concat Addition for JS SourceMap generation --------------------------------------
+	http://blog.teamtreehouse.com/introduction-source-maps
+	Read : https://www.npmjs.com/package/gulp-concat
+	https://www.npmjs.com/package/gulp-sourcemaps
+	Source maps can be generated by using gulp-sourcemaps
+
+
+TRY ------------------------------------------------------------------------------
+
+runsequence
+	https://www.npmjs.com/package/gulp-run-sequence
+	https://www.npmjs.com/package/gulp-sequence
+
+gulp-replace 
+
+pretty print css and js 
+
+Split Task across Multiple Files --------------------------------------
+	https://github.com/gulpjs/gulp/blob/master/docs/recipes/split-tasks-across-multiple-files.md
+
+Config.js gulp-starter module.exports --------------------------------------
+	http://www.sitepoint.com/understanding-module-exports-exports-node-js/
+	http://www.hacksparrow.com/node-js-exports-vs-module-exports.html
+
+Synchronous tasks and dependencies with Gulp
+	http://schickling.me/synchronous-tasks-gulp/
+
+Specify Multiple Folder Paths To Watch 
+	http://stackoverflow.com/questions/27645103/how-to-gulp-watch-multiple-files
+	gulp.watch(['sass/**/*.scss', 'layouts/**/*.css'], ['css']);
+
+Gulp Crash Sound --------------------------------------
+	https://www.npmjs.com/package/gulp-crash-sound
+
+Gulp Notify --------------------------------------
+	https://www.npmjs.com/package/gulp-notify
+
+BrowserSync Vs LiveReload --------------------------------------
+	http://stefanimhoff.de/2014/gulp-tutorial-2-development-server-browsersync-configuration/
+
+Gulp to Move, Create Files/Folders : like Scaffolding  --------------------------------------
+	gulp.src and gulp.dest might work , check this out 
+
+Creating your own gulp plugin --------------------------------------
+
+Using Slush for Scaffolding --------------------------------------
+
+Using Bower if required --------------------------------------
+
+Create a universal less compiler which can be triggered for any less file on any directory --------------------------------------
+
+Create Package.json for managing dev dependencies --------------------------------------
+	add gulpfile.js 
+	npm init in folder will create that package.json file 
+	then install all gulp packages the package.json will be updated with the dev dependencies
+	now u dont need the node-modules folder 
+	just run npm install and it will install dependencies specified in package.json file 
+
+Create external config file refer stefanimhoff blog --------------------------------------
+
+
+GMI Integration --------------------------------------
+$/Retail/DistributionPlanner/dev/DistributionPlanner_Soln
+
+https://scotch.io/tutorials/easy-project-scaffolding-with-gulp-and-slush
+http://linemanjs.com/
+https://www.mockaroo.com/
+http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt/
+
